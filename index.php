@@ -46,7 +46,7 @@
 		                  <span class="fa fa-angle-right"></span>
 		                </a>
 		            </div>
-		            <h2>Monthly Top Sellers</h2>
+		            <h2>Mejores Ventas del Mes</h2>
 		       		<?php
 		       			$month = date('m');
 		       			$conn = $pdo->open();
@@ -67,7 +67,7 @@
 		       									<h5><a href='product.php?product=".$row['slug']."'>".$row['name']."</a></h5>
 		       								</div>
 		       								<div class='box-footer'>
-		       									<b>&#36; ".number_format($row['price'], 2)."</b>
+		       									<b>Q.  ".number_format($row['price'], 2)."</b>
 		       								</div>
 	       								</div>
 	       							</div>
