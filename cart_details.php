@@ -33,7 +33,7 @@
 				$output .= "
 					<tr>
 						<td><button type='button' data-id='".$row['cartid']."' class='btn btn-danger btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
-						<td><img src='".$image."' width='30px' height='30px'></td>
+						<td><img src='".$image."' width='30px' ></td>
 						<td>".$row['name']."</td>
 						<td>Q.  ".number_format($row['price'], 2)."</td>
 						<td class='input-group'>
@@ -76,7 +76,7 @@
 				$output .= "
 					<tr>
 						<td><button type='button' data-id='".$row['productid']."' class='btn btn-danger btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
-						<td><img src='".$image."' width='30px' height='30px'></td>
+						<td><img src='".$image."' width='30px' ></td>
 						<td>".$product['name']."</td>
 						<td>Q.  ".number_format($product['price'], 2)."</td>
 						<td class='input-group'>

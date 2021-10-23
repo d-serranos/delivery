@@ -14,7 +14,7 @@
         Historial de ventas
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> INICIO</a></li>
         <li class="active">Ventas</li>
       </ol>
     </section>

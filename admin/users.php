@@ -14,7 +14,7 @@
         Usuarios
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> INICIO</a></li>
         <li class="active">Usuarios</li>
       </ol>
     </section>
@@ -73,7 +73,7 @@
                         echo "
                           <tr>
                             <td>
-                              <img src='".$image."' height='30px' width='30px'>
+                              <img src='".$image."' width='30px'>
                               <span class='pull-right'><a href='#edit_photo' class='photo' data-toggle='modal' data-id='".$row['id']."'><i class='fa fa-edit'></i></a></span>
                             </td>
                             <td>".$row['email']."</td>

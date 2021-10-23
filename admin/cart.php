@@ -30,7 +30,7 @@
         <?php echo $user['firstname'].' '.$user['lastname'].'`s Cart' ?>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> INICIO</a></li>
         <li>Usuarios</li>
         <li class="active">Carrito</li>
       </ol>

@@ -46,7 +46,7 @@
       <br>
       <a href="password_forgot.php">Olvide mi contraseña</a><br>
       <a href="signup.php" class="text-center">Registrarse</a><br>
-      <a href="index.php"><i class="fa fa-home"></i> Home</a>
+      <a href="index.php"><i class="fa fa-home"></i> INICIO</a>
   	</div>
 </div>
 	

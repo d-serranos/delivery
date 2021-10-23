@@ -2,7 +2,7 @@
   <nav class="navbar navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="index.php" class="navbar-brand"><b>UMG TECHNOLOGY </b></a>
+        <a href="index.php" class="navbar-brand"><b>INNOMOVIL </b></a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
           <i class="fa fa-bars"></i>
         </button>
@@ -11,7 +11,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.php">HOME</a></li>
+          <li><a href="index.php">INICIO</a></li>
           <!-- <li><a href=""></a></li>
           <li><a href="">CONTACT US</a></li> -->
           <li class="dropdown">
@@ -38,6 +38,7 @@
               ?>
             </ul>
           </li>
+          <li><a href="about_us.php">ACERCA DE</a></li>
         </ul>
         <form method="POST" class="navbar-form navbar-left" action="search.php">
           <div class="input-group">

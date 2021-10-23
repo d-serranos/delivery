@@ -36,7 +36,7 @@
     	</form>
       <br>
       <a href="login.php">Yo recuero mi contraseña</a><br>
-      <a href="index.php"><i class="fa fa-home"></i> Home</a>
+      <a href="index.php"><i class="fa fa-home"></i> INICIO</a>
   	</div>
 </div>
 	

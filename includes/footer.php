@@ -1,8 +1,6 @@
 <footer class="main-footer">
     <div class="container">
-      <div class="pull-right hidden-xs">
-        <b>Todos los derechos reservados</b>
-      </div>
-      <strong>Copyright &copy; 2021 UMG GRUPO 7 </strong>
+      
+      <strong>Desarrollado por 2021 UMG_G7 </strong>
     </div>
 </footer>

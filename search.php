@@ -38,7 +38,7 @@
 	       							<div class='col-sm-4'>
 	       								<div class='box box-solid'>
 		       								<div class='box-body prod-body'>
-		       									<img src='".$image."' width='100%' height='230px' class='thumbnail'>
+		       									<img src='".$image."' width='100%'  class='thumbnail'>
 		       									<h5><a href='product.php?product=".$row['slug']."'>".$highlighted."</a></h5>
 		       								</div>
 		       								<div class='box-footer'>

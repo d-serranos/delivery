@@ -23,7 +23,7 @@
 	        			}
 	        		?>
 					
-	        		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	        		<!-- <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		                <ol class="carousel-indicators">
 		                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 		                  <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
@@ -46,7 +46,7 @@
 		                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
 		                  <span class="fa fa-angle-right"></span>
 		                </a>
-		            </div>
+		            </div> -->
 
 		            <h2>Mejores Ventas del Mes</h2>
 		       		<?php
@@ -65,7 +65,7 @@
 	       							<div class='col-sm-4'>
 	       								<div class='box box-solid'>
 		       								<div class='box-body prod-body'>
-		       									<img src='".$image."' width='100%' height='230px' class='thumbnail'>
+		       									<img src='".$image."' width='100%'  class='thumbnail'>
 		       									<h5><a href='product.php?product=".$row['slug']."'>".$row['name']."</a></h5>
 		       								</div>
 		       								<div class='box-footer'>

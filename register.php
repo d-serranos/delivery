@@ -4,6 +4,10 @@
 
 	include 'includes/session.php';
 	if(isset($_POST['signup'])){
+		
+		echo "si llega";
+		echo $_POST['password'];
+
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$email = $_POST['email'];
@@ -14,20 +18,7 @@
 		$_SESSION['lastname'] = $lastname;
 		$_SESSION['email'] = $email;
 
-		if(!isset($_SESSION['captcha'])){
-			require('recaptcha/src/autoload.php');		
-			$recaptcha = new \ReCaptcha\ReCaptcha('6LevO1IUAAAAAFCCiOHERRXjh3VrHa5oywciMKcw', new \ReCaptcha\RequestMethod\SocketPost());
-			$resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
-
-			if (!$resp->isSuccess()){
-		  		$_SESSION['error'] = 'Por favor responda correctamente el Captcha';
-		  		header('location: signup.php');	
-		  		exit();	
-		  	}	
-		  	else{
-		  		$_SESSION['captcha'] = time() + (10*60);
-		  	}
-		}
+		$_SESSION['captcha'] = time() + (10*60);
 
 		if($password != $repassword){
 			$_SESSION['error'] = 'La contraseña y la verificacion no coinciden';
@@ -50,71 +41,72 @@
 				//generate code
 				$set='123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 				$code=substr(str_shuffle($set), 0, 12);
-
+				echo $code;
 				try{
-					$stmt = $conn->prepare("INSERT INTO users (email, password, firstname, lastname, activate_code, created_on) VALUES (:email, :password, :firstname, :lastname, :code, :now)");
+					$stmt = $conn->prepare("INSERT INTO users (email, password, firstname, lastname, activate_code, created_on, type, address, contact_info,photo,status,reset_code) VALUES (:email, :password, :firstname, :lastname, :code, :now, 0,\"\",\"\",\"\",1,\"\");");
 					$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'code'=>$code, 'now'=>$now]);
 					$userid = $conn->lastInsertId();
 
-					$message = "
-						<h2>Gracias por registrarte.</h2>
-						<p>Tue cuenta:</p>
-						<p>Correo: ".$email."</p>
-						<p>contraseña: ".$_POST['password']."</p>
-						<p>Haga click en el siguiente enlace para activar su cuenta.</p>
-						<a href='http://localhost/ecommerce/activate.php?code=".$code."&user=".$userid."'>Activar Cuenta</a>
-					";
+					// $message = "
+					// 	<h2>Gracias por registrarte.</h2>
+					// 	<p>Tue cuenta:</p>
+					// 	<p>Correo: ".$email."</p>
+					// 	<p>contraseña: ".$_POST['password']."</p>
+					// 	<p>Haga click en el siguiente enlace para activar su cuenta.</p>
+					// 	<a href='http://localhost/ecommerce/activate.php?code=".$code."&user=".$userid."'>Activar Cuenta</a>
+					// ";
 
 					//Load phpmailer
-		    		require 'vendor/autoload.php';
+		    		// require 'vendor/autoload.php';
 
-		    		$mail = new PHPMailer(true);                             
+		    		// $mail = new PHPMailer(true);                             
 				    try {
 				        //Server settings
-				        $mail->isSMTP();                                     
-				        $mail->Host = 'smtp.gmail.com';                      
-				        $mail->SMTPAuth = true;                               
-				        $mail->Username = 'erviin.drop@gmail.com';     
-				        $mail->Password = '';                    
-				        $mail->SMTPOptions = array(
-				            'ssl' => array(
-				            'verify_peer' => false,
-				            'verify_peer_name' => false,
-				            'allow_self_signed' => true
-				            )
-				        );                         
-				        $mail->SMTPSecure = 'ssl';                           
-				        $mail->Port = 465;                                   
+				        // $mail->isSMTP();                                     
+				        // $mail->Host = 'smtp.gmail.com';                      
+				        // $mail->SMTPAuth = true;                               
+				        // $mail->Username = 'erviin.drop@gmail.com';     
+				        // $mail->Password = '';                    
+				        // $mail->SMTPOptions = array(
+				        //     'ssl' => array(
+				        //     'verify_peer' => false,
+				        //     'verify_peer_name' => false,
+				        //     'allow_self_signed' => true
+				        //     )
+				        // );                         
+				        // $mail->SMTPSecure = 'ssl';                           
+				        // $mail->Port = 465;                                   
 
-				        $mail->setFrom('erviin.drop@gmail.com');
+				        // $mail->setFrom('erviin.drop@gmail.com');
 				        
-				        //Recipients
-				        $mail->addAddress($email);              
-				        $mail->addReplyTo('erviin.drop@gmail.com');
+				        // //Recipients
+				        // $mail->addAddress($email);              
+				        // $mail->addReplyTo('erviin.drop@gmail.com');
 				       
-				        //Content
-				        $mail->isHTML(true);                                  
-				        $mail->Subject = 'Registro en nuestro Ecommerce';
-				        $mail->Body    = $message;
+				        // //Content
+				        // $mail->isHTML(true);                                  
+				        // $mail->Subject = 'Registro en nuestro Ecommerce';
+				        // $mail->Body    = $message;
 
-				        $mail->send();
+				        // $mail->send();
 
 				        unset($_SESSION['firstname']);
 				        unset($_SESSION['lastname']);
 				        unset($_SESSION['email']);
 
-				        $_SESSION['success'] = 'Cuenta Creada. Verifica tu correo para activarla.';
+				        $_SESSION['success'] = 'Cuenta Creada. Inicia sesion para continuar.';
 				        header('location: signup.php');
 
 				    } 
 				    catch (Exception $e) {
-				        $_SESSION['error'] = 'Mnesaje no se pudo enviar. Mailer Error: '.$mail->ErrorInfo;
+				        $_SESSION['error'] = 'Mensaje no se pudo enviar. Mailer Error: '.$mail->ErrorInfo;
 				        header('location: signup.php');
 				    }
 
 
 				}
 				catch(PDOException $e){
+					echo $e->getMessage();
 					$_SESSION['error'] = $e->getMessage();
 					header('location: register.php');
 				}
@@ -127,8 +119,8 @@
 
 	}
 	else{
-		$_SESSION['error'] = 'Fill up signup form first';
-		header('location: signup.php');
+		$_SESSION['error'] = 'Llene el formulario primero';
+		// header('location: signup.php');
 	}
 
 ?>
