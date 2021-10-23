@@ -26,26 +26,26 @@
       }
     ?>
   	<div class="login-box-body">
-    	<p class="login-box-msg">Sign in to start your session</p>
+    	<p class="login-box-msg">Ingrese sus credenciales para iniciar la sesion</p>
 
     	<form action="verify.php" method="POST">
       		<div class="form-group has-feedback">
-        		<input type="email" class="form-control" name="email" placeholder="Email" required>
+        		<input type="email" class="form-control" name="email" placeholder="Correo" required>
         		<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       		</div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" name="password" placeholder="Password" required>
+            <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
       		<div class="row">
     			<div class="col-xs-4">
-          			<button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><i class="fa fa-sign-in"></i> Sign In</button>
+          			<button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><i class="fa fa-sign-in"></i> Ingreso</button>
         		</div>
       		</div>
     	</form>
       <br>
-      <a href="password_forgot.php">I forgot my password</a><br>
-      <a href="signup.php" class="text-center">Register a new membership</a><br>
+      <a href="password_forgot.php">Olvide mi contraseña</a><br>
+      <a href="signup.php" class="text-center">Registrarse</a><br>
       <a href="index.php"><i class="fa fa-home"></i> Home</a>
   	</div>
 </div>

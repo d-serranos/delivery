@@ -3,7 +3,6 @@
 	use PHPMailer\PHPMailer\Exception;
 
 	include 'includes/session.php';
-
 	if(isset($_POST['signup'])){
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
@@ -21,18 +20,17 @@
 			$resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
 
 			if (!$resp->isSuccess()){
-		  		$_SESSION['error'] = 'Please answer recaptcha correctly';
+		  		$_SESSION['error'] = 'Por favor responda correctamente el Captcha';
 		  		header('location: signup.php');	
 		  		exit();	
 		  	}	
 		  	else{
 		  		$_SESSION['captcha'] = time() + (10*60);
 		  	}
-
 		}
 
 		if($password != $repassword){
-			$_SESSION['error'] = 'Passwords did not match';
+			$_SESSION['error'] = 'La contraseña y la verificacion no coinciden';
 			header('location: signup.php');
 		}
 		else{
@@ -42,7 +40,7 @@
 			$stmt->execute(['email'=>$email]);
 			$row = $stmt->fetch();
 			if($row['numrows'] > 0){
-				$_SESSION['error'] = 'Email already taken';
+				$_SESSION['error'] = 'Este correo esta en uso';
 				header('location: signup.php');
 			}
 			else{
@@ -59,12 +57,12 @@
 					$userid = $conn->lastInsertId();
 
 					$message = "
-						<h2>Thank you for Registering.</h2>
-						<p>Your Account:</p>
-						<p>Email: ".$email."</p>
-						<p>Password: ".$_POST['password']."</p>
-						<p>Please click the link below to activate your account.</p>
-						<a href='http://localhost/ecommerce/activate.php?code=".$code."&user=".$userid."'>Activate Account</a>
+						<h2>Gracias por registrarte.</h2>
+						<p>Tue cuenta:</p>
+						<p>Correo: ".$email."</p>
+						<p>contraseña: ".$_POST['password']."</p>
+						<p>Haga click en el siguiente enlace para activar su cuenta.</p>
+						<a href='http://localhost/ecommerce/activate.php?code=".$code."&user=".$userid."'>Activar Cuenta</a>
 					";
 
 					//Load phpmailer
@@ -76,8 +74,8 @@
 				        $mail->isSMTP();                                     
 				        $mail->Host = 'smtp.gmail.com';                      
 				        $mail->SMTPAuth = true;                               
-				        $mail->Username = 'testsourcecodester@gmail.com';     
-				        $mail->Password = 'mysourcepass';                    
+				        $mail->Username = 'erviin.drop@gmail.com';     
+				        $mail->Password = '';                    
 				        $mail->SMTPOptions = array(
 				            'ssl' => array(
 				            'verify_peer' => false,
@@ -88,15 +86,15 @@
 				        $mail->SMTPSecure = 'ssl';                           
 				        $mail->Port = 465;                                   
 
-				        $mail->setFrom('testsourcecodester@gmail.com');
+				        $mail->setFrom('erviin.drop@gmail.com');
 				        
 				        //Recipients
 				        $mail->addAddress($email);              
-				        $mail->addReplyTo('testsourcecodester@gmail.com');
+				        $mail->addReplyTo('erviin.drop@gmail.com');
 				       
 				        //Content
 				        $mail->isHTML(true);                                  
-				        $mail->Subject = 'ECommerce Site Sign Up';
+				        $mail->Subject = 'Registro en nuestro Ecommerce';
 				        $mail->Body    = $message;
 
 				        $mail->send();
@@ -105,12 +103,12 @@
 				        unset($_SESSION['lastname']);
 				        unset($_SESSION['email']);
 
-				        $_SESSION['success'] = 'Account created. Check your email to activate.';
+				        $_SESSION['success'] = 'Cuenta Creada. Verifica tu correo para activarla.';
 				        header('location: signup.php');
 
 				    } 
 				    catch (Exception $e) {
-				        $_SESSION['error'] = 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo;
+				        $_SESSION['error'] = 'Mnesaje no se pudo enviar. Mailer Error: '.$mail->ErrorInfo;
 				        header('location: signup.php');
 				    }
 

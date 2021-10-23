@@ -22,6 +22,7 @@
 	        				unset($_SESSION['error']);
 	        			}
 	        		?>
+					
 	        		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		                <ol class="carousel-indicators">
 		                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -46,6 +47,7 @@
 		                  <span class="fa fa-angle-right"></span>
 		                </a>
 		            </div>
+
 		            <h2>Mejores Ventas del Mes</h2>
 		       		<?php
 		       			$month = date('m');
@@ -78,7 +80,7 @@
 							if($inc == 2) echo "<div class='col-sm-4'></div></div>";
 						}
 						catch(PDOException $e){
-							echo "There is some problem in connection: " . $e->getMessage();
+							echo "Tenemos un problema de conexion, por favor vuelve a intentar.: " . $e->getMessage();
 						}
 
 						$pdo->close();

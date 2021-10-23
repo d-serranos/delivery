@@ -39,7 +39,7 @@
 				}
 			}
 			else{
-				$_SESSION['error'] = 'Code did not match with user';
+				$_SESSION['error'] = 'EL codigo no coincide con el usuario';
 				header('location: '.$path);
 			}
 
@@ -48,7 +48,7 @@
 
 	}
 	else{
-		$_SESSION['error'] = 'Input new password first';
+		$_SESSION['error'] = 'Ingrese la nueva contraseña primero';
 		header('location: '.$path);
 	}
 

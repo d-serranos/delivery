@@ -41,10 +41,10 @@
 	</div>
 </div>
 
-<div class="row">
+<!-- <div class="row">
 	<div class='box box-solid'>
 	  	<div class='box-header with-border'>
-	    	<h3 class='box-title'><b>Follow us on Social Media</b></h3>
+	    	<h3 class='box-title'><b>Siguenos en nuestras redes sociales</b></h3>
 	  	</div>
 	  	<div class='box-body'>
 	    	<a class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
@@ -54,4 +54,4 @@
 	    	<a class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a>
 	  	</div>
 	</div>
-</div>
+</div> -->

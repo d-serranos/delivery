@@ -2,9 +2,9 @@
 
 Class Database{
  
-	private $server = "mysql:host=localhost;dbname=ecomm";
+	private $server = "mysql:host=127.0.0.1:3306;dbname=ecomm";
 	private $username = "root";
-	private $password = "";
+	private $password = "Arrow2012";
 	private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
 	protected $conn;
  	
@@ -14,7 +14,7 @@ Class Database{
  			return $this->conn;
  		}
  		catch (PDOException $e){
- 			echo "There is some problem in connection: " . $e->getMessage();
+ 			echo "Tenemos un problema de conexion, por favor vuelve a intentar.: " . $e->getMessage();
  		}
  
     }

@@ -28,7 +28,7 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Fill up category form first';
+		$_SESSION['error'] = 'Primero llena una categoria';
 	}
 
 	header('location: category.php');

@@ -39,7 +39,7 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Fill up user form first';
+		$_SESSION['error'] = 'Llena el formualrio primero';
 	}
 
 	header('location: users.php');

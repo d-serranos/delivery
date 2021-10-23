@@ -15,7 +15,7 @@
 			$user = $stmt->fetch();
 		}
 		catch(PDOException $e){
-			echo "There is some problem in connection: " . $e->getMessage();
+			echo "Tenemos un problema de conexion, por favor vuelve a intentar.: " . $e->getMessage();
 		}
 
 		$pdo->close();

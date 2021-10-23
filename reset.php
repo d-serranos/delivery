@@ -22,10 +22,10 @@
 				$stmt->execute(['code'=>$code, 'id'=>$row['id']]);
 				
 				$message = "
-					<h2>Password Reset</h2>
-					<p>Your Account:</p>
+					<h2>Reseteo de contraseña</h2>
+					<p>Tu cuenta:</p>
 					<p>Email: ".$email."</p>
-					<p>Please click the link below to reset your password.</p>
+					<p>Haga click en el siguiente link para restablecer su contraseña.</p>
 					<a href='http://localhost/ecommerce/password_reset.php?code=".$code."&user=".$row['id']."'>Reset Password</a>
 				";
 

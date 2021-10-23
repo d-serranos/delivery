@@ -23,24 +23,24 @@
 						}
 					}
 					else{
-						$_SESSION['error'] = 'Incorrect Password';
+						$_SESSION['error'] = 'Contraseña Incorrecta';
 					}
 				}
 				else{
-					$_SESSION['error'] = 'Account not activated.';
+					$_SESSION['error'] = 'Cuenta no activada.';
 				}
 			}
 			else{
-				$_SESSION['error'] = 'Email not found';
+				$_SESSION['error'] = 'Correo no encontrado';
 			}
 		}
 		catch(PDOException $e){
-			echo "There is some problem in connection: " . $e->getMessage();
+			echo "Tenemos un problema de conexion, por favor vuelve a intentar.: " . $e->getMessage();
 		}
 
 	}
 	else{
-		$_SESSION['error'] = 'Input login credentails first';
+		$_SESSION['error'] = 'Primero ingrese sus credenciales';
 	}
 
 	$pdo->close();

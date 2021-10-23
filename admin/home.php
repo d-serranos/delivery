@@ -73,12 +73,12 @@
 
                 echo "<h3>Q.  ".number_format_short($total, 2)."</h3>";
               ?>
-              <p>Total Sales</p>
+              <p>Total de Ventas</p>
             </div>
             <div class="icon">
               <i class="fa fa-shopping-cart"></i>
             </div>
-            <a href="book.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="book.php" class="small-box-footer">Mas Informacion <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -94,12 +94,12 @@
                 echo "<h3>".$prow['numrows']."</h3>";
               ?>
           
-              <p>Number of Products</p>
+              <p>Numero de producto</p>
             </div>
             <div class="icon">
               <i class="fa fa-barcode"></i>
             </div>
-            <a href="student.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="student.php" class="small-box-footer">Mas Informacion <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -115,12 +115,12 @@
                 echo "<h3>".$urow['numrows']."</h3>";
               ?>
              
-              <p>Number of Users</p>
+              <p>Numero de Usuarios</p>
             </div>
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="return.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="return.php" class="small-box-footer">Mas Informacion <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -142,12 +142,12 @@
                 
               ?>
 
-              <p>Sales Today</p>
+              <p>Ventas de hoy</p>
             </div>
             <div class="icon">
               <i class="fa fa-money"></i>
             </div>
-            <a href="borrow.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="borrow.php" class="small-box-footer">Mas informacion <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -157,15 +157,15 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Monthly Sales Report</h3>
+              <h3 class="box-title">Reporte de Ventas Mensuales</h3>
               <div class="box-tools pull-right">
                 <form class="form-inline">
                   <div class="form-group">
-                    <label>Select Year: </label>
+                    <label>Seleccionar año: </label>
                     <select class="form-control input-sm" id="select_year">
                       <?php
                         for($i=2015; $i<=2065; $i++){
-                          $selected = ($i==$year)?'selected':'';
+                          $selected = ($i==$year)?'Seleccionado':'';
                           echo "
                             <option value='".$i."' ".$selected.">".$i."</option>
                           ";
@@ -235,7 +235,7 @@ $(function(){
     labels  : <?php echo $months; ?>,
     datasets: [
       {
-        label               : 'SALES',
+        label               : 'Ventas',
         fillColor           : 'rgba(60,141,188,0.9)',
         strokeColor         : 'rgba(60,141,188,0.8)',
         pointColor          : '#3b8bba',

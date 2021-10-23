@@ -19,7 +19,7 @@
 
 	}
 	else{
-		$_SESSION['error'] = 'Select user to activate first';
+		$_SESSION['error'] = 'Selecciona el usuario primero para activarlo';
 	}
 
 	header('location: users.php');
